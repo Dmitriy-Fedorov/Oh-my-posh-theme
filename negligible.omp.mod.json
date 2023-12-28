@@ -83,6 +83,15 @@
           "style": "plain",
           "template": "| {{ .CurrentDate | date .Format }} ",
           "type": "time"
+        },
+        {
+          "type": "sysinfo",
+          "template2": "|  {{ round .PhysicalPercentUsed .Precision }}% <#ffffff>MEM:</>",
+          "template": "|  {{ round .PhysicalPercentUsed .Precision }}% ({{ (div ((sub .PhysicalTotalMemory .PhysicalFreeMemory)|float64) 1048576.0) }}/{{ (div .PhysicalTotalMemory 1048576.0) }}MB)",
+          "properties": {
+            "precision": 1
+          },
+          "style": "plain"
         }
       ],
       "type": "prompt"
