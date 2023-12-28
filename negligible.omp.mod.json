@@ -5,15 +5,22 @@
       "alignment": "left",
       "segments": [
         {
+          "type": "session",
+          "foreground": "cyan",
+          "style": "plain",
+          "template": "{{ if .SSHSession }}\ueba9 {{ end }}"
+        },
+        {
           "foreground": "cyan",
           "style": "powerline",
-          "template": "{{ if .WSL }}WSL at {{ end }}{{.Icon}}",
+          "template": "{{ if .WSL }}WSL at {{ end }}{{.Icon}} ",
           "type": "os"
         },
         {
           "type": "session",
+          "foreground": "cyan",
           "style": "plain",
-          "template": "{{ if .SSHSession }} {{ end }}{{ .UserName }}"
+          "template": "{{ .UserName }}@{{ .HostName }}"
         },
         {
           "foreground": "cyan",
@@ -67,17 +74,17 @@
           "template": "| \ue235 {{ if .Error }}{{ .Error }}{{ else }}{{ if .Venv }}{{ .Venv }} {{ end }}{{ .Full }}{{ end }}",
           "type": "python"
         },
-		{
-		  "type": "executiontime",
-		  "style": "powerline",
-		  "foreground": "#40c4ff",
-		  "template": " | {{ .FormattedMs }} ",
-		  "properties": {
-			"threshold": 500,
-			"style": "austin",
-			"always_enabled": true
-		  }
-		},
+        {
+          "type": "executiontime",
+          "style": "powerline",
+          "foreground": "#40c4ff",
+          "template": " | {{ .FormattedMs }} ",
+          "properties": {
+          "threshold": 500,
+          "style": "austin",
+          "always_enabled": true
+          }
+        },
         {
           "foreground": "lightGreen",
           "style": "plain",
