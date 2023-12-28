@@ -11,6 +11,11 @@
           "type": "os"
         },
         {
+          "type": "session",
+          "style": "plain",
+          "template": "{{ if .SSHSession }} {{ end }}{{ .UserName }}"
+        },
+        {
           "foreground": "cyan",
           "properties": {
             "style": "full"
